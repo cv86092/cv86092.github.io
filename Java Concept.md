@@ -1,3 +1,11 @@
+# JAVA Concept
+```mermaid
+graph LR
+A[封裝] -->B(繼承)
+    B[多型] --> C{抽象}
+    C[介面] -->|hahow 課程| D[SpringBoot]
+```
+
 ## 封裝
 * getter
 * setter  
@@ -133,3 +141,5 @@ Dog的建構子中，主要運做的是 Dog(int h,int w,String c)，其他參數
 ##  參考
 
 * [https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation] Java備忘筆記
+
+## 
