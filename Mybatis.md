@@ -92,5 +92,5 @@ public interface UserMapper {
     User getUserById(int id);
 }
 ```
-* note
+*    note
     * interface 的意義在於用同樣的一個Interface 可定義不同類別的物件，而這些類別物件就可使用同個資料庫。
