@@ -141,6 +141,7 @@ Dog的建構子中，主要運做的是 Dog(int h,int w,String c)，其他參數
 *   **我自己的想法是，繼承就是類別成員、類別方法都可以繼承，this可以用this(String str,Int integ)來繼承**
 
 ##  多型
+### 利用父類別提供的方法呼叫，子類別可以有自己特有的行為。
 ```
 class Animal {
     void move() {
@@ -187,7 +188,139 @@ move...move...
 
     要記住繼承子類別可轉型為父類別的寫法，對程式的架構來講會變的很簡潔** 
 
+##  抽象
+### 不把抽象類別的方法實作出來，讓子類別去實作就不用管抽象本身方法，只專注在子類別繼承後的實作方法了。
+*   抽象類別不能被實體化
+    *   利用修飾子abstract，可以使方法變成抽象方法，抽象方法只能寫方法的原型，無法定義方法的本體。 
+    `ex: abstract void eat(); //加大括號就會出錯`
+    
+        類別
+
+        讓類別變成抽象類別，不能建立實體，專門用來『被繼承』。
+
+        方法
+
+        讓方法變成抽象方法，只能定義原型，專門用來『被覆寫』。
+        ```
+        abstract class Animal{
+            int weight,heigh;
+            void setValue(int w,int h){
+                this.weight = w;
+                this.height = h;
+            }
+            abstract void eat();
+        }
+        class Dog extends Animal{
+            void eat(){
+                System.out.println("啃骨頭...");
+            }
+        }
+        class Bird extends Animal{
+            void eat(){
+                System.out.println("早起吃蟲...");
+            }
+        }
+        ```
+##  介面
+### 描述不同類別的共通行為。
+####    抽象與介面的差別︰
+1.   建構子  
+        *   抽象類別：  
+    可以擁有建構子，用來初始化抽象類別中的欄位。    
+        *   介面：  
+    `**不可以有建構子，因為不能直接建立介面的實例。**`    
+
+2.   修飾詞
+        *   抽象類別：  
+            可以擁有實例變數，可以有預設值或沒有預設值。    
+            這些欄位可以有任何訪問修飾符（private、protected、public 等）。
+        *   介面：  
+            只能擁有public static final變數（常數）。   
+            這些變數隱式地是 public、static 和 final，因此不能更改。    
+3.  方法    
+    *   抽象類別    
+        可以有抽象方法和具體方法(不要加abstract 修飾詞就是具體方法)    
+    *   介面    
+        只能有抽象方法(Java 8 之後可以有 default/static 方法)   
+        介面的方法一定要被實作
+    
+   
+4.  使用情境    
+       *    抽象類別   
+            當類別之間有共同行為或狀態（欄位），但某些方法需要由子類別實作時，適合使用。    
+            例如，Animal（動物）抽象類別可能有像 name 這樣的欄位，還有像 eat() 這樣的具體方法，但強制子類別（如 Dog 和 Cat）實作 sound() 方法。    
+       *    介面    
+            當你想要定義一個不同類別都必須遵循的合約時，適合使用介面。實作相同介面的類別不需要是相關的，但它們必須提供該介面中定義的行為。  
+            例如，Flyable（可飛行）介面可能被 Bird（鳥）和 Airplane（飛機）實作。  
+5.  總結Interface    
+```
+    1.  變數︰介面的成員變數是final 不能被改。
+    2.  方法︰抽象和介面都可以有抽象方法(方法原形)和有實作的方法，繼承的子類別一定要實作抽象方法。
+
+
+用於被實作，子類別要實作定義的方法。
+
+介面中只能定義方法原型，不能有方法本體。//Java 8 之後可以有 default/static 方法本體
+
+方法的修飾子必為public abstract，欄位的修飾子必為public static final，可省略不可衝突。
+
+定義的資料欄位用於作為常數使用。(因為修飾子為public static final)
+
+設計中心以方法(行為)為主體。
+
+一般來說有共同的概念可以繼承相同的抽象父類別，
+
+若只是行為相同以介面來設計會比較恰當。
+
+實務上先考慮介面的劃分會比較方便，畢竟類別可以繼承多個介面，需要用到層層的欄位概念再使用類別去繼承。    
+
+You can define an interface in the same .java file as another class or interface, as long as only one of them is public (and the filename matches the public class/interface).  
+
+You can also define an interface inside another class (inner interface) 
+
+抽象類別也可以繼承介面，但不一定要實作方法，
+
+
+```
+6.  範例︰   
+```
+public interface Power {
+	int value =20;//介面可以有成員變數
+	static String name ="";//介面可以有成員變數
+	
+	//Power();//介面不能有建構子。因為不能直接建立介面的實例
+    
+    static void getName() {//Java 8 之後可以有 default/static 方法
+    	System.out.println("hello");
+    };
+    
+    //void E() {};//因為加了body , 所以需加上static 才不會發生錯誤
+    
+	void getPoweabstract ;//沒有實作方法，因為沒有加Body，所以不會出錯。
+	
+
+}
+```
+
+interface extends|implements abstract|interface 
+    *   interface extends interface -->OK
+    *   interface  implements interface  -->NG  
+    *   interface extends abstract only -->NG   
+    *   interface  implements abstract  -->NG   
+
+abstract  extends|implements abstract|interface     
+    *   abstract extends abstract-->OK  
+    *   abstract implements abstract -->NG  
+    *   abstract extends interface-->NG   
+    *   abstract implements interface -->OK
+
+
 ##  參考
 
 * [https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation] Java備忘筆記
+
+##  一些轉成中文的名詞︰
+*   成員變數-->Member Variable , Instance Variable
+*   成員方法-->Method
+*   實例-->Instance
 
