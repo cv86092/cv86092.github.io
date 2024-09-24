@@ -138,7 +138,40 @@ Animal中帶有兩個參數的建構子 Animal(int h,int w) 視為主要負責�
 Dog的建構子中，主要運做的是 Dog(int h,int w,String c)，其他參數比較少的運算子只需要設計應該帶什麼參數給他。 這種被稱為方法的包裝(wrapped) 是常見且比較容易設計的做法。
 ```
 
-*   **我自己的想法是，繼承就是類別成員、類別方法都可以繼承，this可以用this(String str,Int integ)來繼承**
+*   **我自己的想法是，繼承就是類別成員、類別方法都可以繼承，this可以用this(String str,Int integ)來指向自己的建構子**
+
+```
+class B {
+    B() {
+        System.out.println("B's default constructor");
+    }
+    B(String name){
+        System.out.println("B's String constructor");
+
+    }
+    B(int age){
+    	System.out.println("B's Integer constructor");
+    	
+    }
+}
+
+class A extends B {
+    A(int age) {
+        System.out.println("A's constructor");
+    }
+}
+
+public class main2 {
+    public static void main(String[] args) {
+//        A aa = new A();
+        A a = new A(1);  // This will print:
+//                     B's default constructor
+//        				A's constructor
+    }
+}
+```
+*   這個例子表示A繼承B ,B 有一個預設建構子， 只要用A 產出一個實例，就會直接call 一個B()
+
 
 ##  多型
 ### 利用父類別提供的方法呼叫，子類別可以有自己特有的行為。
@@ -318,7 +351,7 @@ abstract  extends|implements abstract|interface
 ##  參考
 
 * [https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation] Java備忘筆記
-
+*   [https://java.4-x.tw/java-11/java-11-1]Java 學習系列
 ##  一些轉成中文的名詞︰
 *   成員變數-->Member Variable , Instance Variable
 *   成員方法-->Method
