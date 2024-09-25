@@ -17,8 +17,8 @@ D[Interface UserMapper]-->|resultType| E[function getUserId]
 **flowchart**
 ```mermaid
 flowchart LR
-A[index.jsp-userVO]-->|from|B[userDAO extends dbhome]-->|function|C[getUserbyId-UserMapper.xml]
-C-->|實作|D[Interface UserMapper]
+A[index.jsp-userVO]-->|call userDAO function|B[userDAO extends dbhome]-->| call function|C[interface UserMapper]
+C-->|實作|D[UserMapper.xml]
 ```
 
 

@@ -170,7 +170,18 @@ public class main2 {
     }
 }
 ```
-*   這個例子表示A繼承B ,B 有一個預設建構子， 只要用A 產出一個實例，就會直接call 一個B()
+*   建構元不會被繼承
+*   執行子類別之建構元之前，會先呼叫父類別之建構元，目的是為了初始化。
+    *   子類別如果有建構元，父類別一定也要有
+    *   父類別若沒有無引數建構元，但有引數建構元，則子類別建立建構元時，一定要先super父類別有引數的建構元
+    *   子類別在建立建構元時，若沒有super父類別之引數建構元，就會呼叫父類別預設建構元。
+*  結論︰若父類別只有「有引數的建構元」，而子類別又沒透過 super 來呼叫特定的父類別建構元的話，程式編譯時將會出錯！
+
+![alt text](image.png)
+
+
+*   In Java, when you create an object of a subclass (in this case, son), the constructor of the superclass (age) is always called first before the subclass's constructor is executed.
+*   建立子類別的實例時，子類別繼承的父類別的預設建構元就會被執行。
 
 
 ##  多型
@@ -353,7 +364,7 @@ abstract  extends|implements abstract|interface
 * [https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation] Java備忘筆記
 *   [https://java.4-x.tw/java-11/java-11-1]Java 學習系列
 ##  一些轉成中文的名詞︰
-*   成員變數-->Member Variable , Instance Variable
+*   成員變數-->Member Variable , Instance Variable , field
 *   成員方法-->Method
 *   實例-->Instance
 
