@@ -5,7 +5,12 @@ A[封裝] -->B(繼承)
     B[多型] --> C{抽象}
     C[介面] -->|hahow 課程| D[SpringBoot]
 ```
-
+## 概念
+```mermaid
+graph LR
+A[抽象類別]-->|繼承|B[子類別/多型/super/this]
+C[介面]-->|繼承|B
+```
 ## 封裝
 * getter
 * setter  
@@ -274,7 +279,7 @@ move...move...
         *   介面：  
     `**不可以有建構子，因為不能直接建立介面的實例。**`    
 
-2.   修飾詞
+2.   變數
         *   抽象類別：  
             可以擁有實例變數，可以有預設值或沒有預設值。    
             這些欄位可以有任何訪問修飾符（private、protected、public 等）。
@@ -306,7 +311,7 @@ move...move...
 
 介面中只能定義方法原型，不能有方法本體。//Java 8 之後可以有 default/static 方法本體
 
-方法的修飾子必為public abstract，欄位的修飾子必為public static final，可省略不可衝突。
+欄位的修飾子必為public static final，可省略不可衝突。
 
 定義的資料欄位用於作為常數使用。(因為修飾子為public static final)
 
@@ -357,8 +362,11 @@ abstract  extends|implements abstract|interface
     *   abstract implements abstract -->NG  
     *   abstract extends interface-->NG   
     *   abstract implements interface -->OK
+7.  問題︰
+    *   介面
 
-
+## static
+*   static 區塊或方法中，不能用到任何非static 的成員變數及方法也不能用this 保留字。
 ##  參考
 
 * [https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation] Java備忘筆記
