@@ -1,5 +1,6 @@
 #SpringBoot
 ##  Progress 
+
 ###   20240926 
 *   買了hahow  的springboot 課
 ###   20240928
@@ -14,6 +15,11 @@
 *   在json 裡的 Array 是可以轉換成Java 的List 
 *   spring boot 將 object 轉成 json 格式放在 response body 是靠一個叫jackson 的library
 *   int default value is 0 , Integer default value is null
+### 20241003
+*   validation request body , controller 方法的參數前面要加@Valid
+*   validation request header , path ,  param , 則要在controller class 前面加@Validated 
+*   exception Controller : 如果不寫exception controller , response body 會寫internal server error , 如果寫了 exception controller , response body 就會有明確的訊息。
+
 
 
 ##  JetBrains
