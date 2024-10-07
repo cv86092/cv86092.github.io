@@ -20,7 +20,18 @@
 *   validation request header , path ,  param , 則要在controller class 前面加@Validated 
 *   exception Controller : 如果不寫exception controller , response body 會寫internal server error , 如果寫了 exception controller , response body 就會有明確的訊息。
 
-
+### 20241006
+*   Mysql 可以有兩欄以上的primary key
+*   使用keyholder 可以用map 指定兩個primary key 欄位的值
+```
+    Map<String, Object> keyMap = keyHolder.getKeys();
+    System.out.println("Generated order_id: " + keyMap.get("order_id"));
+    System.out.println("Generated product_id: " + keyMap.get("product_id"));
+```
+### 20241007
+*   Why You Need to Create Member Instances Explicitly:
+    *   Member is a Custom Object: Java doesn't know how to create a Member object by default. You need to explicitly call new Member() to create an instance.
+    *   String Literals Are Managed by Java: Java automatically handles String objects for literals, storing them in a string pool and creating them implicitly when they are assigned to variables.
 
 ##  JetBrains
 *   我在9/29 用cv86092@gmail.com買了一個月的jetbrain，日期到10/29
