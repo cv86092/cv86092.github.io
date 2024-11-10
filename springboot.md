@@ -123,10 +123,33 @@
     *   JPA︰定義要如何去操作資料庫
     *   Hibernate : 一種ORM 框架，去實現JPA，JPA定義、Hibernate實作
 
+### 20241107
+    *   CrudRepository 中的 save 方法不只是新增，還有修改的功能
+    *   application.properties : spring.jap.show-sql=true 可查看JPA生成的sql 語法。
+
+### 20241108
+    *   JPA findBy... ex findByNameAndGender(name,gender) 
+    *   findByLastName(String lastname)
+    *   要在StudentCrudRepository 新增此方法。
+    *   Optional<T> 可以用isPresent 判斷是否沒值
+### 20241109
+    *   測試的程式要放在TEST 資料夾裡
+    *   package 要和正式的package 相同
+
+### 20241110
+*   課程 7-5 下載的範例不能用，因為它用java 11 and spring boot version 2.3.x , 要符合自已電腦環境改成java 17 和 spring boot 3.3.4
+*   @Transactional 在 main 資料夾底下是有一個發生錯誤，就會rollback ，而如果在test 資料夾就是單元測試結束後就會恢復所有更動的設定。可以加在方法上也可以加在class 上
+*   這個寫法可以回傳寫入的Object
+```java
+        return ResponseEntity.status(HttpStatus.CREATED).body(newStudent);
+```
+*   @Transactional 要放在
+*   
 ##  JetBrains
 *   我在9/29 用cv86092@gmail.com買了一個月的jetbrain，日期到10/29
 *   hahow 10/2 才寄給我折扣碼，但不能用在gmail , 所以我用cv86092@plantynet.com.tw 這個email 去使用這個折扣碼
-*   
+##  Hugo
+雖然 GitHub Pages 推薦使用 Jekyll 生成靜態網頁，但在 Windows 環境下 Jekyll 似乎比較不友善，而 Hugo 入門相對容易、官方文件有完整的教學，還有編譯速度快等優點，眾多因素考慮下，我選擇了 Hugo。
 
 ## note
 *   @Bean  
