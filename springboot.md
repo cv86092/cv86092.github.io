@@ -143,8 +143,13 @@
 ```java
         return ResponseEntity.status(HttpStatus.CREATED).body(newStudent);
 ```
-*   @Transactional 要放在
-*   
+### 20241111
+*   RequestBuilder requestBuilder = MockMvcRequestBuilders.
+*   MvcResult mvcResult = mockMvc.perform(resultBuilder).andExpect....
+
+### 20241112
+*   @SpyBean : 如果測試方法裡面有提到Mockito.when(studentDao) 才會使用假的，沒提到就用真的Bean
+*   @MockBean ︰ 全部都是給假的Bean
 ##  JetBrains
 *   我在9/29 用cv86092@gmail.com買了一個月的jetbrain，日期到10/29
 *   hahow 10/2 才寄給我折扣碼，但不能用在gmail , 所以我用cv86092@plantynet.com.tw 這個email 去使用這個折扣碼
