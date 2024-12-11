@@ -150,6 +150,64 @@
 ### 20241112
 *   @SpyBean : 如果測試方法裡面有提到Mockito.when(studentDao) 才會使用假的，沒提到就用真的Bean
 *   @MockBean ︰ 全部都是給假的Bean
+
+### 20241119    
+*   H2 資料庫︰嵌入資料庫
+*   啟動spring boot 被創建，運行結束被銷毀
+*   常用在單元測試
+*   application.properties 在 test 和 src 裡的設定是完全獨立的
+
+### 20241121
+*   創建資料庫要放在schema.sql
+*   塞資料要放在data.sql
+*   Convention over Configuration 約定大於配置, 就是什麼檔案就是幹什麼事，不要使用者再去配置設定
+*   Run Test with coverage 測試覆蓋率
+  
+### 20241127
+*   7-12 Test Driven Development
+*   7-13 總結
+*   8-1 pom.xml dependency , group id 為 spring boot starter 開頭不可指定Version
+### 20241129
+*   Maven-project建構︰打包spring boot project 程式
+*   Maven標籤可運行clean指令
+*   java -jar xxx.jar ，spring boot build 出來的jar 檔就可以直接run 了
+### 20241203
+*   SNAPSHOT 不穩定版可無限次覆蓋 xxx-1.0.0-SNAPSHOT.jar
+*   release 穩定版只能上傳一次，沒有後綴詞 xxx-1.0.0.jar
+*   8-5 使用intellij 創建 project 
+    *   groupId 公司名字
+    *   artifactId 功能名稱
+### 20241204
+* 8-6 ObjectMapper
+### 20241205
+*   8-7 RestTemplate
+    *   getForObject 帶 parameter 
+    *   postForObject 帶 request Body
+    *   exchange 可以帶 header 
+### 20241208 
+*   create project ->Template Engines -->Thymeleaf
+*   model.addAttributes("myStudent":student)
+```Java
+如果不用bean 的話
+Printer printer; 這寫法是不成立的
+就算要寫也要指明道姓的寫 Printer printer = new HPPrinter();
+所以控制反轉，依賴注入就會讓這個寫法比較簡訊
+Printer printer;
+```
+*   8-10 Spring boot 3 , 支援java 17 以後的版本
+*   javax-->jarkarta 
+*   持續優化GraalVM 技術。
+
+### 20241209
+*   9-1 Debug 上
+*   9-2 Debug 下
+*   9-3 實用方法
+    *   ctrl + 滑鼠左鍵可選使用此方法的地方
+    *   ctrl +　alt + F 跳回游標的進入點
+    *   視窗點兩下可以放大
+    *   ctrl + alt + O 移除多餘的import 
+
+
 ##  JetBrains
 *   我在9/29 用cv86092@gmail.com買了一個月的jetbrain，日期到10/29
 *   hahow 10/2 才寄給我折扣碼，但不能用在gmail , 所以我用cv86092@plantynet.com.tw 這個email 去使用這個折扣碼
