@@ -46,4 +46,6 @@
     -   Notion 對我縮排 heading 不支援
 
 
+```css
 <style>h1{border-bottom:0px;text-align:center}</style>
+```
