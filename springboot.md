@@ -207,6 +207,40 @@ Printer printer;
     *   視窗點兩下可以放大
     *   ctrl + alt + O 移除多餘的import 
 
+### 20241221
+*   11-3 查詢商品
+*   11-4 Enum
+    *   Enum 的好處︰資料庫儲存的值是否如預期中的值，而非意外的數值造成程式影嚮。
+    *   Enum 的值是大寫, 及用_連接兩名詞
+    ```java
+*   11-5 預設返回的時間，spring boot 會預設用格林威治時區間GMT+0 的時間作返回
+### 20241222
+*   11-6 新增商品
+```json
+{
+"product_name": "VolksWagen",
+"category": "CAR",
+"image_url": "https://www.volkswagen.com",
+"price": 20,
+"stock": 10,
+"description": ""
+}
+```
+
+### 20241225
+*   11-7 修改商品
+    *   本來一直不成功，最後發現是@PathVariable 沒有加到
+
+### 20241226
+*   11-9 查詢商品列表-基礎實作
+*   11-10 查詢商品列表-查詢條件
+
+### 20241229
+*   11-11 改善參數傳遞 (product reuqest 要放在 dto )
+*   11-12 商品排序
+    *   order by 不能用 :參數 加在sql 裡，只能用拚接的方式。
+    *   如果需要多個條件排序的話，請大家上網去查相關資料，這裡沒有講。
+
 
 ##  JetBrains
 *   我在9/29 用cv86092@gmail.com買了一個月的jetbrain，日期到10/29
@@ -231,3 +265,8 @@ public class AppConfig {
     </beans>
 }
 ```
+
+##  Notion
+*   封存非完成，而是將任務暫時從目前的工作流移除。
+*   /2 --> 可輸入兩欄的區塊
+*   每次講大標中標小標可以講層級，透過層級可以了解文章的重要性和關聯性
